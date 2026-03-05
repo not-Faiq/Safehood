@@ -288,7 +288,7 @@ class _SafetyHomeScreenState extends State<SafetyHomeScreen> {
     }
   }
 
-  // Updated _buildNavIcon with AppColors
+  // Updated _buildNavIcon method with larger icons and text
   Widget _buildNavIcon(String assetName, String filledAssetName, String label, int index) {
     bool isSelected = _selectedIndex == index;
 
@@ -300,31 +300,30 @@ class _SafetyHomeScreenState extends State<SafetyHomeScreen> {
       child: GestureDetector(
         onTap: () => _onNavItemTapped(index),
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 4),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
                 'assets/icons/$iconToShow',
-                width: 22,
-                height: 22,
+                width: 30, // Increased from 22 to 28
+                height: 30, // Increased from 22 to 28
                 color: iconColor,
                 errorBuilder: (context, error, stackTrace) {
                   return Container(
-                    width: 22,
-                    height: 22,
+                    width: 30,
+                    height: 30,
                     color: Colors.red.withOpacity(0.2),
-                    child: Icon(Icons.broken_image, size: 14, color: Colors.red),
+                    child: Icon(Icons.broken_image, size: 18, color: Colors.red),
                   );
                 },
               ),
-              SizedBox(height: 2),
+              SizedBox(height: 4), // Slightly increased spacing
               Text(
                 label,
                 style: TextStyle(
                   color: iconColor,
-                  fontSize: 9,
+                  fontSize: 9, // Increased from 9 to 11
                   fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
                 ),
               ),
@@ -587,7 +586,7 @@ class _SafetyHomeScreenState extends State<SafetyHomeScreen> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
       bottomNavigationBar: BottomAppBar(
-        color: AppColors.cardBg,
+        color: AppColors.darkBg,
         shape: CircularNotchedRectangle(),
         notchMargin: 5,
         child: Padding(
